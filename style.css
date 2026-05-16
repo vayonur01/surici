@@ -1,0 +1,433 @@
+/* ==========================================================================
+   1. TEMEL AYARLAR VE FONT ENTEGRASYONU
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. ÜST MENÜ (NAVBAR)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ffb703; /* GTA Temalı Vurgu Sarısı */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffb703;
+}
+
+/* ==========================================================================
+   3. GİRİŞ EKRANI (HERO SECTION)
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    position: relative;
+    /* Diyarbakır Ulu Camii Arka Planı */
+    background: url('https://www.kulturportali.gov.tr/contents/images/Diyarbak%c4%b1r_Ulu%20Cami_Ali%20D%c3%bczdemir-38%20kopya.jpg') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Sol tarafı karartarak yazıların okunmasını kolaylaştırır */
+    background: linear-gradient(to right, rgba(11, 11, 11, 0.95) 35%, rgba(11, 11, 11, 0.4));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.game-tag {
+    color: #ffb703;
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 3px 5px 15px rgba(0,0,0,0.7);
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #cccccc;
+    margin-bottom: 35px;
+}
+
+/* ==========================================================================
+   4. BUTONLAR
+   ========================================================================== */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #ffb703;
+    color: #000;
+    padding: 18px 36px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.btn-video {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.btn-video:hover {
+    color: #ffb703;
+}
+
+.btn-secondary {
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* ==========================================================================
+   5. HİKAYE BÖLÜMÜ (STORY)
+   ========================================================================== */
+.story-section {
+    padding: 100px 0;
+    background-color: #111111;
+    border-top: 4px solid #ffb703;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title span {
+    color: #ffb703;
+}
+
+.story-section p {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #aaaaaa;
+}
+
+/* ==========================================================================
+   6. ÖZELLİKLER BÖLÜMÜ (FEATURES)
+   ========================================================================== */
+.features-section {
+    padding: 100px 0;
+    background-color: #0b0b0b;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background-color: #151515;
+    padding: 40px 30px;
+    border-radius: 6px;
+    border-left: 4px solid #151515;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    border-left: 4px solid #ffb703;
+    transform: translateY(-5px);
+    background-color: #1c1c1c;
+}
+
+.feature-card i {
+    font-size: 36px;
+    color: #ffb703;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.feature-card p {
+    color: #888888;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   7. SİSTEM GEREKSİNİMLERİ & TABLO
+   ========================================================================== */
+.system-section {
+    padding: 100px 0;
+    background-color: #111111;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #151515;
+    text-align: left;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 18px 24px;
+}
+
+th {
+    background-color: #ffb703;
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+tr {
+    border-bottom: 1px solid #222222;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #1c1c1c;
+    color: #fff;
+}
+
+td {
+    color: #cccccc;
+    font-size: 15px;
+}
+
+td:first-child {
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ==========================================================================
+   8. KADRO BÖLÜMÜ (TEAM SECTION)
+   ========================================================================== */
+.team-section {
+    padding: 100px 0;
+    background-color: #0b0b0b;
+    text-align: center;
+}
+
+.section-subtitle {
+    color: #888888;
+    margin-top: -15px;
+    margin-bottom: 50px;
+    font-size: 16px;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.team-card {
+    background-color: #111111;
+    padding: 40px 30px;
+    border-radius: 6px;
+    border: 1px solid #222222;
+    width: 300px;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: #ffb703;
+    box-shadow: 0 10px 25px rgba(255, 183, 3, 0.15);
+}
+
+.team-img-wrapper {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #222222;
+    transition: border-color 0.3s ease;
+}
+
+.team-card:hover .team-img-wrapper {
+    border-color: #ffb703;
+}
+
+.team-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.team-role {
+    color: #ffb703;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-social a {
+    color: #aaaaaa;
+    font-size: 20px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.team-social a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   9. MOBİL UYUMLULUK (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+    nav {
+        display: none; /* Mobil için menüyü gizler */
+    }
+    .hero h1 {
+        font-size: 38px;
+    }
+    .hero-content {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .hero-overlay {
+        background: rgba(11, 11, 11, 0.85);
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .section-title {
+        font-size: 28px;
+    }
+}
