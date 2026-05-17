@@ -18,19 +18,19 @@
             overflow-x: hidden;
         }
 
-        /* Rockstar Tarzı Sabit Üst Menü */
+        /* Navigasyon */
         header {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #1c1c1c;
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -49,13 +49,13 @@
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             margin-left: 30px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: color 0.3s;
         }
 
@@ -63,41 +63,40 @@
             color: #fff;
         }
 
-        /* Sinematik Giriş Ekranı (Hero Section) */
+        /* Dev Arka Plan Giriş Alanı (Hero) */
         .hero {
             height: 100vh;
-            /* Arka plana oyun içi kaliteli bir görsel veya video gelebilir */
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(11, 11, 11, 1)), url('oyun-ici-gorsel.jpg') center/cover no-repeat;
-            background-color: #151515; 
+            /* Buraya ana kapak görselinizi ekleyin */
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(11, 11, 11, 1)), url('ana-kapak.jpg') center/cover no-repeat;
+            background-color: #151515;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 0 0 100px 8%;
+            padding: 0 0 80px 8%;
         }
 
         .hero h1 {
-            font-size: 6rem;
+            font-size: 7rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
+            letter-spacing: -3px;
+            line-height: 0.85;
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 40px;
-            max-width: 600px;
-            font-weight: 300;
+            max-width: 650px;
+            font-weight: 400;
         }
 
-        /* Rockstar Tarzı Premium İndirme Butonu */
         .btn-download {
             background-color: #fff;
             color: #000;
-            padding: 18px 50px;
-            font-size: 1.1rem;
+            padding: 20px 60px;
+            font-size: 1.2rem;
             font-weight: 900;
             text-decoration: none;
             text-transform: uppercase;
@@ -108,107 +107,140 @@
         }
 
         .btn-download:hover {
-            background-color: #e5e5e5;
+            background-color: #fcaf17; /* Rockstar sarısı esintisi */
             transform: translateY(-2px);
         }
 
-        /* İçerik Bölümleri (Görsel Odaklı Grid) */
+        /* Genel İçerik Şablonu */
         .content-section {
-            padding: 100px 8%;
+            padding: 80px 8%;
             max-width: 1600px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             letter-spacing: -1px;
+            border-left: 5px solid #fcaf17;
+            padding-left: 15px;
         }
 
-        .rockstar-grid {
+        /* 3'lü Haberler ve Özellikler Grid Düzeni */
+        .rockstar-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* 2'li Büyük Blok Düzeni */
+        .rockstar-grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
+            margin-bottom: 60px;
         }
 
         .grid-item {
             background-color: #161616;
             border: 1px solid #222;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        /* Grid içindeki sanal resim alanı */
+        .grid-item:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        /* Resim Alanları */
         .item-image {
-            height: 350px;
+            height: 250px;
             background-color: #2a2a2a;
             background-size: cover;
             background-position: center;
+            /* Örnek olarak kendi görsel isimlerinizi buraya yazabilirsiniz: url('resim1.jpg') */
+        }
+
+        .big-image {
+            height: 400px;
         }
 
         .item-info {
-            padding: 40px;
+            padding: 30px;
         }
 
         .item-info h3 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 800;
             margin-bottom: 15px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .item-info p {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 25px;
         }
 
-        /* Topluluk Discord Butonu */
+        /* Discord Alanı */
+        .discord-banner {
+            background: linear-gradient(90deg, #5865F2, #404eed);
+            padding: 60px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .discord-text h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
         .btn-discord {
-            display: inline-block;
-            border: 2px solid #fff;
-            color: #fff;
-            padding: 12px 30px;
+            background-color: #fff;
+            color: #5865F2;
+            padding: 15px 40px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s;
         }
 
         .btn-discord:hover {
-            background-color: #fff;
-            color: #000;
+            background-color: #e5e5e5;
         }
 
-        /* Sistem Gereksinimleri Alanı */
-        .sys-requirements {
+        /* Teknik Detaylar Paneli */
+        .specs-panel {
             background-color: #111;
             padding: 40px;
             border: 1px solid #222;
         }
 
-        .sys-list {
+        .specs-list {
             list-style: none;
-            margin-top: 20px;
         }
 
-        .sys-list li {
-            padding: 15px 0;
+        .specs-list li {
+            padding: 20px 0;
             border-bottom: 1px solid #222;
-            font-size: 1rem;
             display: flex;
             justify-content: space-between;
+            font-size: 1rem;
         }
 
-        .sys-list li span {
-            color: rgba(255, 255, 255, 0.5);
+        .specs-list li span:last-child {
+            color: #fcaf17;
+            font-weight: 700;
         }
 
         /* Footer */
@@ -216,13 +248,13 @@
             background-color: #000;
             padding: 60px 8%;
             text-align: center;
-            border-top: 1px solid #222;
+            border-top: 1px solid #1c1c1c;
             margin-top: 100px;
         }
 
         footer p {
             color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 1px;
         }
     </style>
@@ -233,52 +265,95 @@
         <div class="nav-container">
             <div class="logo">SURIÇI</div>
             <nav class="nav-links">
-                <a href="#about">Genel Bakış</a>
+                <a href="#features">Özellikler</a>
+                <a href="#media">Medya</a>
                 <a href="#community">Topluluk</a>
-                <a href="#specs">Sistemler</a>
+                <a href="#specs">Sistem</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <h1>SURİÇİ</h1>
-        <p>Açık dünya aksiyon deneyimini Diyarbakır'ın tarihi sokaklarında tecrübe edin. Benzersiz karakterler ve derin bir atmosfer sizi bekliyor.</p>
+        <p>Diyarbakır'ın tarihi sokaklarında geçen, GTA ve RDR2 mekaniklerinden ilham alan devasa açık dünya aksiyon deneyimine hazır olun.</p>
         <a href="surici_setup_x64.exe" class="btn-download" download>ŞİMDİ İNDİR (64-BIT EXE)</a>
     </section>
 
-    <main class="content-section" id="about">
-        <h2 class="section-title">Oyun Dünyası</h2>
-        
-        <div class="rockstar-grid">
+    <main class="content-section">
+
+        <h2 class="section-title" id="features">Oyun Özellikleri</h2>
+        <div class="rockstar-grid-3">
             
-            <div class="grid-item" id="community">
-                <div class="item-image" style="background-color: #5865F2;">
-                    </div>
+            <div class="grid-item">
+                <div class="item-image" style="background-image: url('karakterler.jpg'); background-color: #222;"></div>
                 <div class="item-info">
-                    <h3>RESMİ TOPLULUK</h3>
-                    <p>Geliştirme aşamalarını takip etmek, güncellemelerden anında haberdar olmak ve diğer oyuncularla bir araya gelmek için resmi topluluk alanımıza katılın.</p>
-                    <a href="https://discord.gg/YcFtJrYsUE" target="_blank" class="btn-discord">DISCORD'A KATIL</a>
+                    <h3>Özgün Karakterler</h3>
+                    <p>Suriçi'nin kendine has kültürünü, dinamiklerini ve sokak hikayelerini yansıtan derinlikli karakter kadrosu.</p>
                 </div>
             </div>
 
-            <div class="grid-item" id="specs">
-                <div class="item-info sys-requirements" style="height: 100%;">
-                    <h3>SİSTEM GEREKSİNİMLERİ</h3>
-                    <ul class="sys-list">
-                        <li>MİMARİ <span>x64 Tabanlı (Yalnızca 64-Bit)</span></li>
-                        <li>İŞLETİM SİSTEMİ <span>Windows 10 / 11</span></li>
-                        <li>İŞLEMCİ <span>64-bit Destekli Güncel İşlemci</span></li>
-                        <li>GRAFİK <span>DirectX 11 veya 12 Uyumlu</span></li>
-                        <li>DEPOLAMA KAPASİTESİ <span>Yakında Açıklanacak</span></li>
-                    </ul>
+            <div class="grid-item">
+                <div class="item-image" style="background-image: url('sokaklar.jpg'); background-color: #222;"></div>
+                <div class="item-info">
+                    <h3>Yaşayan Açık Dünya</h3>
+                    <p>Tarihi surlar, dar sokaklar ve Diyarbakır'ın ikonik mekanları en ince detayına kadar modellenmiş halde keşfedilmeyi bekliyor.</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="item-image" style="background-image: url('aksiyon.jpg'); background-color: #222;"></div>
+                <div class="item-info">
+                    <h3>Gelişmiş Mekanikler</h3>
+                    <p>Rockstar tarzı çatışma, sürüş ve görev mekanikleri ile kesintisiz, akıcı bir oynanış tecrübesi.</p>
                 </div>
             </div>
 
         </div>
+
+        <h2 class="section-title" id="media">Ekran Görüntüleri & Medya</h2>
+        <div class="rockstar-grid-2">
+            
+            <div class="grid-item">
+                <div class="item-image big-image" style="background-image: url('ekran-goruntusu1.jpg'); background-color: #2d2d2d;"></div>
+                <div class="item-info">
+                    <h3>Gündüz Atmosferi</h3>
+                    <p>Tarihi dokunun gün ışığındaki büyüleyici detayları ve çevre tasarımı.</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="item-image big-image" style="background-image: url('ekran-goruntusu2.jpg'); background-color: #2d2d2d;"></div>
+                <div class="item-info">
+                    <h3>Sokak Hayatı</h3>
+                    <p>Şehrin yaşayan yapay zekası ve sokaklardaki hareketli anlar.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="discord-banner" id="community">
+            <div class="discord-text">
+                <h2>RESMİ TOPLULUĞA KATILIN</h2>
+                <p>Geliştirici ekiple iletişim kurun, güncellemeleri ilk siz indirin.</p>
+            </div>
+            <a href="https://discord.gg/YcFtJrYsUE" target="_blank" class="btn-discord">Discord Sunucusu</a>
+        </div>
+
+        <h2 class="section-title" id="specs">Sistem Gereksinimleri</h2>
+        <div class="specs-panel">
+            <ul class="specs-list">
+                <li><span>İŞLETİM SİSTEMİ</span> <span>Windows 10 / 11 (Yalnızca 64-Bit)</span></li>
+                <li><span>MİMARİ</span> <span>x64 Tabanlı Sistem</span></li>
+                <li><span>İŞLEMCİ</span> <span>64-bit Destekli Güncel İşlemci</span></li>
+                <li><span>GRAFİK KARTI</span> <span>DirectX 11 veya 12 Uyumlu</span></li>
+                <li><span>DEPOLAMA ALANI (GB)</span> <span>Yakında Açıklanacak</span></li>
+            </ul>
+        </div>
+
     </main>
 
     <footer>
-        <p>&copy; 2026 SURİÇİ DEV TEAM. ROCKSTAR GAMES TASARIM ESİNTİLERİYLE HAZIRLANMIŞTIR.</p>
+        <p>&copy; 2026 SURİÇİ DEVELOPMENT TEAM. TÜM HAKLARI SAKLIDIR.</p>
     </footer>
 
 </body>
