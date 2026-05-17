@@ -61,21 +61,24 @@ nav a:hover {
     color: #ffb703;
 }
 
-/* Geliştirilme Aşaması Etiketi */
-.status-tag {
-    color: #ffb703;
-    border: 1px solid #ffb703;
-    padding: 8px 16px;
-    font-size: 12px;
+.btn-discord-nav {
+    background-color: #5865F2; /* Orijinal Discord Rengi */
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
-    border-radius: 50px;
-    letter-spacing: 1px;
-    background: rgba(255, 183, 3, 0.05);
+    font-size: 13px;
+    border-radius: 4px;
+    transition: background 0.3s ease, transform 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 0 10px rgba(255, 183, 3, 0.1);
+}
+
+.btn-discord-nav:hover {
+    background-color: #454fbf;
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -103,7 +106,7 @@ nav a:hover {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .game-tag {
@@ -111,7 +114,9 @@ nav a:hover {
     font-weight: 900;
     letter-spacing: 3px;
     font-size: 14px;
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 15px;
 }
 
@@ -131,8 +136,34 @@ nav a:hover {
     margin-bottom: 35px;
 }
 
+/* Canlı Bilgi Çubuğu */
+.hero-status-bar {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.status-item {
+    font-size: 13px;
+    color: #aaa;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.dot.green { background-color: #2ec4b6; box-shadow: 0 0 8px #2ec4b6; }
+
 /* ==========================================================================
-   4. BUTONLAR
+   4. YENİ DİSCORD BUTONLARI
    ========================================================================== */
 .hero-buttons {
     display: flex;
@@ -141,39 +172,45 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
-.btn-primary {
-    background-color: #ffb703;
-    color: #000;
+.btn-discord-main {
+    background-color: #5865F2;
+    color: #fff;
     padding: 18px 36px;
     text-decoration: none;
     font-weight: 900;
     text-transform: uppercase;
     border-radius: 4px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
+    gap: 12px;
+    box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
 }
 
-.btn-primary:hover {
-    background-color: #ffffff;
+.btn-discord-main:hover {
+    background-color: #454fbf;
     transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(88, 101, 242, 0.6);
 }
 
-.btn-video {
+.btn-secondary-custom {
+    border: 2px solid rgba(255,255,255,0.2);
     color: #fff;
+    padding: 16px 32px;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    transition: color 0.3s ease;
 }
 
-.btn-video:hover {
-    color: #ffb703;
+.btn-secondary-custom:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
 /* ==========================================================================
@@ -253,11 +290,51 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   7. SİSTEM GEREKSİNİMLERİ & TABLO
+   7. YENİ BÖLÜM: GALERİ ALANI (GALLERY)
+   ========================================================================== */
+.gallery-section {
+    padding: 100px 0;
+    background-color: #111111;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    background-color: #1c1c1c;
+    height: 200px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #222;
+    transition: border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: #ffb703;
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: linear-gradient(135deg, #151515 0%, #222222 100%);
+}
+
+/* ==========================================================================
+   8. SİSTEM GEREKSİNİMLERİ & TABLO
    ========================================================================== */
 .system-section {
     padding: 100px 0;
-    background-color: #111111;
+    background-color: #0b0b0b;
 }
 
 .table-wrapper {
@@ -311,7 +388,44 @@ td:first-child {
 }
 
 /* ==========================================================================
-   8. KADRO BÖLÜMÜ (TEAM SECTION)
+   9. YENİ BÖLÜM: SIKÇA SORULAN SORULAR (FAQ)
+   ========================================================================== */
+.faq-section {
+    padding: 100px 0;
+    background-color: #111111;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.faq-card {
+    background-color: #151515;
+    padding: 30px;
+    border-radius: 6px;
+    border: 1px solid #222;
+}
+
+.faq-card h4 {
+    font-size: 18px;
+    color: #ffb703;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-card p {
+    color: #aaa;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   10. KADRO BÖLÜMÜ (TEAM SECTION)
    ========================================================================== */
 .team-section {
     padding: 100px 0;
@@ -404,7 +518,37 @@ td:first-child {
 }
 
 /* ==========================================================================
-   9. MOBİL UYUMLULUK (RESPONSIVE)
+   11. ALT BİLGİ (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: #050505;
+    padding: 30px 0;
+    border-top: 1px solid #111;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-socials a {
+    color: #666;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #ffb703;
+}
+
+/* ==========================================================================
+   12. MOBİL UYUMLULUK (RESPONSIVE)
    ========================================================================== */
 @media (max-width: 768px) {
     .navbar {
@@ -426,7 +570,15 @@ td:first-child {
     .hero-buttons {
         justify-content: center;
     }
+    .hero-status-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
     .section-title {
         font-size: 28px;
+    }
+    .footer-content {
+        justify-content: center;
+        text-align: center;
     }
 }
