@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SURİÇİ - Resmi Web Sitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background-color: #0b0b0b;
+            background-color: #050505;
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* Navigasyon */
+        /* Modern & Şeffaf Navigasyon */
         header {
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-container {
@@ -35,195 +36,231 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
+            padding: 15px 40px;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             border: 3px solid #fff;
-            padding: 2px 10px;
+            padding: 4px 12px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            background-color: #fff;
+            color: #000;
         }
 
         .nav-links a {
             color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 35px;
             font-weight: 700;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: color 0.3s;
+            letter-spacing: 2px;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
         }
 
         .nav-links a:hover {
-            color: #fff;
+            color: #ffb703;
         }
 
-        /* Dev Arka Plan Giriş Alanı (Hero) */
+        /* Sinematik Giriş Alanı (Hero) */
         .hero {
             height: 100vh;
-            /* Buraya ana kapak görselinizi ekleyin */
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(11, 11, 11, 1)), url('ana-kapak.jpg') center/cover no-repeat;
-            background-color: #151515;
+            /* Örnek atmosferik eski şehir/sokak görseli */
+            background: linear-gradient(rgba(0,0,0,0.2), #050505), url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1920') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 0 0 80px 8%;
+            padding: 0 0 100px 8%;
         }
 
         .hero h1 {
-            font-size: 7rem;
+            font-size: 7.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -3px;
+            letter-spacing: -4px;
             line-height: 0.85;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 40px;
-            max-width: 650px;
+            max-width: 700px;
             font-weight: 400;
+            line-height: 1.6;
         }
 
+        /* Yenilenmiş Premium İndirme Butonu */
         .btn-download {
-            background-color: #fff;
+            background: linear-gradient(135deg, #ffb703, #fb8500);
             color: #000;
-            padding: 20px 60px;
+            padding: 22px 65px;
             font-size: 1.2rem;
             font-weight: 900;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             display: inline-block;
             width: fit-content;
-            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 4px;
+            box-shadow: 0 0 25px rgba(251, 133, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .btn-download:hover {
-            background-color: #fcaf17; /* Rockstar sarısı esintisi */
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 0 35px rgba(251, 133, 0, 0.7);
+            background: #fff;
+            color: #000;
         }
 
-        /* Genel İçerik Şablonu */
+        /* İçerik Şablonu */
         .content-section {
-            padding: 80px 8%;
+            padding: 100px 8%;
             max-width: 1600px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             letter-spacing: -1px;
-            border-left: 5px solid #fcaf17;
-            padding-left: 15px;
+            border-left: 6px solid #fb8500;
+            padding-left: 20px;
         }
 
-        /* 3'lü Haberler ve Özellikler Grid Düzeni */
+        /* Kart Düzenleri ve Efektleri */
         .rockstar-grid-3 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-bottom: 80px;
         }
 
-        /* 2'li Büyük Blok Düzeni */
         .rockstar-grid-2 {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .grid-item {
-            background-color: #161616;
-            border: 1px solid #222;
+            background-color: #0f0f11;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
             overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .grid-item:hover {
-            transform: translateY(-5px);
-            border-color: #444;
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(251, 133, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
         }
 
-        /* Resim Alanları */
+        /* Görseller */
         .item-image {
-            height: 250px;
-            background-color: #2a2a2a;
+            height: 280px;
             background-size: cover;
             background-position: center;
-            /* Örnek olarak kendi görsel isimlerinizi buraya yazabilirsiniz: url('resim1.jpg') */
+            transition: transform 0.5s ease;
+        }
+
+        .grid-item:hover .item-image {
+            transform: scale(1.05);
         }
 
         .big-image {
-            height: 400px;
+            height: 420px;
         }
 
         .item-info {
-            padding: 30px;
+            padding: 35px;
+            background: linear-gradient(to top, #0c0c0e, #0f0f11);
         }
 
         .item-info h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 900;
             margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            color: #fff;
         }
 
         .item-info p {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* Discord Alanı */
+        /* Yenilenmiş Discord Alanı */
         .discord-banner {
-            background: linear-gradient(90deg, #5865F2, #404eed);
-            padding: 60px;
-            border-radius: 4px;
+            background: linear-gradient(135deg, #2f3136, #1f2023);
+            border-left: 8px solid #5865F2;
+            padding: 50px 60px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .discord-text h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 900;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .discord-text p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
         }
 
         .btn-discord {
-            background-color: #fff;
-            color: #5865F2;
-            padding: 15px 40px;
+            background-color: #5865F2;
+            color: #fff;
+            padding: 18px 45px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
+            transition: all 0.3s ease;
         }
 
         .btn-discord:hover {
-            background-color: #e5e5e5;
+            background-color: #fff;
+            color: #5865F2;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
         }
 
-        /* Teknik Detaylar Paneli */
+        /* Şık Teknik Detaylar Paneli */
         .specs-panel {
-            background-color: #111;
-            padding: 40px;
-            border: 1px solid #222;
+            background-color: #0f0f11;
+            padding: 45px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .specs-list {
@@ -231,31 +268,42 @@
         }
 
         .specs-list li {
-            padding: 20px 0;
-            border-bottom: 1px solid #222;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             justify-content: space-between;
-            font-size: 1rem;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        .specs-list li span:first-child {
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
         }
 
         .specs-list li span:last-child {
-            color: #fcaf17;
+            color: #fb8500;
             font-weight: 700;
+            background-color: rgba(251, 133, 0, 0.08);
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: 1px solid rgba(251, 133, 0, 0.2);
         }
 
         /* Footer */
         footer {
-            background-color: #000;
-            padding: 60px 8%;
+            background-color: #020202;
+            padding: 50px 8%;
             text-align: center;
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
             margin-top: 100px;
         }
 
         footer p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
         }
     </style>
 </head>
@@ -275,8 +323,8 @@
 
     <section class="hero">
         <h1>SURİÇİ</h1>
-        <p>Diyarbakır'ın tarihi sokaklarında geçen, GTA ve RDR2 mekaniklerinden ilham alan devasa açık dünya aksiyon deneyimine hazır olun.</p>
-        <a href="surici_setup_x64.exe" class="btn-download" download>ŞİMDİ İNDİR (64-BIT EXE)</a>
+        <p>Açık dünya aksiyon türünü Diyarbakır'ın köklü tarihiyle harmanlayın. GTA ve RDR2 esintileri taşıyan mekaniklerle sınırları zorlayan bir macera sizi bekliyor.</p>
+        <a href="surici_setup_x64.exe" class="btn-download" download>ŞİMDİ ÜNDİR (64-BIT EXE)</a>
     </section>
 
     <main class="content-section">
@@ -285,26 +333,26 @@
         <div class="rockstar-grid-3">
             
             <div class="grid-item">
-                <div class="item-image" style="background-image: url('karakterler.jpg'); background-color: #222;"></div>
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600');"></div>
                 <div class="item-info">
                     <h3>Özgün Karakterler</h3>
-                    <p>Suriçi'nin kendine has kültürünü, dinamiklerini ve sokak hikayelerini yansıtan derinlikli karakter kadrosu.</p>
+                    <p>Suriçi'nin sokak kültürünü, çatışmalarını ve hikayelerini en gerçekçi tonlarla yansıtan karakter kadrosu.</p>
                 </div>
             </div>
 
             <div class="grid-item">
-                <div class="item-image" style="background-image: url('sokaklar.jpg'); background-color: #222;"></div>
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600');"></div>
                 <div class="item-info">
                     <h3>Yaşayan Açık Dünya</h3>
-                    <p>Tarihi surlar, dar sokaklar ve Diyarbakır'ın ikonik mekanları en ince detayına kadar modellenmiş halde keşfedilmeyi bekliyor.</p>
+                    <p>Tarihi dar sokaklar, meşhur yapılar ve yaşayan bir şehir ekosistemi en ince detayına kadar keşfedilmeyi bekliyor.</p>
                 </div>
             </div>
 
             <div class="grid-item">
-                <div class="item-image" style="background-image: url('aksiyon.jpg'); background-color: #222;"></div>
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=600');"></div>
                 <div class="item-info">
                     <h3>Gelişmiş Mekanikler</h3>
-                    <p>Rockstar tarzı çatışma, sürüş ve görev mekanikleri ile kesintisiz, akıcı bir oynanış tecrübesi.</p>
+                    <p>Akıcı sürüş dinamikleri, yeni nesil çatışma hissi ve detaylı görev ağaçlarıyla kesintisiz bir deneyim.</p>
                 </div>
             </div>
 
@@ -314,18 +362,18 @@
         <div class="rockstar-grid-2">
             
             <div class="grid-item">
-                <div class="item-image big-image" style="background-image: url('ekran-goruntusu1.jpg'); background-color: #2d2d2d;"></div>
+                <div class="item-image big-image" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800');"></div>
                 <div class="item-info">
-                    <h3>Gündüz Atmosferi</h3>
-                    <p>Tarihi dokunun gün ışığındaki büyüleyici detayları ve çevre tasarımı.</p>
+                    <h3>Atmosfer ve Işıklandırma</h3>
+                    <p>Şehrin tarihi dokusunun modern grafik motoruyla buluştuğu yüksek çözünürlüklü görseller.</p>
                 </div>
             </div>
 
             <div class="grid-item">
-                <div class="item-image big-image" style="background-image: url('ekran-goruntusu2.jpg'); background-color: #2d2d2d;"></div>
+                <div class="item-image big-image" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800');"></div>
                 <div class="item-info">
-                    <h3>Sokak Hayatı</h3>
-                    <p>Şehrin yaşayan yapay zekası ve sokaklardaki hareketli anlar.</p>
+                    <h3>Sokakların Derinliği</h3>
+                    <p>Dinamik hava durumu ve gece-gündüz döngüsüyle değişen tehlikeli maceralar.</p>
                 </div>
             </div>
 
@@ -334,7 +382,7 @@
         <div class="discord-banner" id="community">
             <div class="discord-text">
                 <h2>RESMİ TOPLULUĞA KATILIN</h2>
-                <p>Geliştirici ekiple iletişim kurun, güncellemeleri ilk siz indirin.</p>
+                <p>Geliştirme sürecine dahil olun, güncellemeleri anında takip edin.</p>
             </div>
             <a href="https://discord.gg/YcFtJrYsUE" target="_blank" class="btn-discord">Discord Sunucusu</a>
         </div>
@@ -343,8 +391,8 @@
         <div class="specs-panel">
             <ul class="specs-list">
                 <li><span>İŞLETİM SİSTEMİ</span> <span>Windows 10 / 11 (Yalnızca 64-Bit)</span></li>
-                <li><span>MİMARİ</span> <span>x64 Tabanlı Sistem</span></li>
-                <li><span>İŞLEMCİ</span> <span>64-bit Destekli Güncel İşlemci</span></li>
+                <li><span>SİSTEM MİMARİSİ</span> <span>x64 Tabanlı Yapı</span></li>
+                <li><span>İŞLEMCİ</span> <span>Intel i5 / AMD Ryzen 5 (Güncel Nesil)</span></li>
                 <li><span>GRAFİK KARTI</span> <span>DirectX 11 veya 12 Uyumlu</span></li>
                 <li><span>DEPOLAMA ALANI (GB)</span> <span>Yakında Açıklanacak</span></li>
             </ul>
@@ -353,7 +401,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 SURİÇİ DEVELOPMENT TEAM. TÜM HAKLARI SAKLIDIR.</p>
+        <p>&copy; 2026 SURİÇİ RESMİ GELİŞTİRİCİ EKİBİ. TÜM HAKLARI SAKLIDIR.</p>
     </footer>
 
 </body>
